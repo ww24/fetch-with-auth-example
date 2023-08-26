@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <title>Intercept http request by service worker example</title>
+    <script src="main.js"></script>
+    <script src="components.js" type="module" defer></script>
+    <style>
+        .box {
+            height: 280px;
+            width: 970px;
+        }
+
+        @media screen and (max-width: 981px) {
+            .box {
+                height: 550px;
+                width: 490px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Restricted image fetching example</h1>
+
+    <h2>Fetch by Service Worker</h2>
+    <div class="box">
+        <img onerror="retry(this)" src="/restricted/image.jpg" width="480" height="270"
+            alt="restricted image (same origin request in service worker)">
+        <img onerror="retry(this)" src="https://fetch-cors.ww24.info/restricted/image.jpg" width="480" height="270"
+            alt="restricted image (cross origin request in service worker)">
+    </div>
+
+    <h2>Fetch by Web Components</h2>
+    <div class="box">
+        <img restricted-src="https://fetch-cors.ww24.info/restricted/image.jpg#skip-service-worker" width="480"
+            height="270" is="restricted-image"
+            alt="restricted image (extends img element maybe doesn't work in Safari)"></img>
+        <restricted-img src="https://fetch-cors.ww24.info/restricted/image.jpg#skip-service-worker" width="480"
+            height="270" alt="restricted image (custom element)">
+        </restricted-img>
+    </div>
+</body>
+
+</html>

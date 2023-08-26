@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "public": "web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/restricted/image.jpg",
+        "run": {
+          "serviceId": "fetch-with-auth-example",
+          "region": "asia-northeast1"
+        }
+      }
+    ]
+  }
+}
