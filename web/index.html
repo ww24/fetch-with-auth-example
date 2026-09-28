@@ -30,16 +30,16 @@
     <div class="box">
         <img onerror="retry(this)" src="/restricted/image.jpg" width="480" height="270"
             alt="restricted image (same origin request in service worker)">
-        <img onerror="retry(this)" src="https://fetch-cors.ww24.info/restricted/image.jpg" width="480" height="270"
+        <img onerror="retry(this)" src="https://fetch-cors.appcloud.info/restricted/image.jpg" width="480" height="270"
             alt="restricted image (cross origin request in service worker)">
     </div>
 
     <h2>Fetch by Web Components</h2>
     <div class="box">
-        <img restricted-src="https://fetch-cors.ww24.info/restricted/image.jpg#skip-service-worker" width="480"
+        <img restricted-src="https://fetch-cors.appcloud.info/restricted/image.jpg#skip-service-worker" width="480"
             height="270" is="restricted-image"
             alt="restricted image (extends img element maybe doesn't work in Safari)"></img>
-        <restricted-img src="https://fetch-cors.ww24.info/restricted/image.jpg#skip-service-worker" width="480"
+        <restricted-img src="https://fetch-cors.appcloud.info/restricted/image.jpg#skip-service-worker" width="480"
             height="270" alt="restricted image (custom element)">
         </restricted-img>
     </div>
